@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useAuth } from '../../context/AuthProvider';
 
 import { ContainerForm, Title, SubTitle, Content, FormContact, InputForm, ButtonForm } from './styles';
@@ -9,16 +9,26 @@ import { useHistory } from 'react-router-dom';
 
 function Login() {
   const { signIn } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const history = useHistory();
 
   const handleSubmit = (event) => {
-
-    signIn({
-      email: 'testeapple@ioasys.com.br',
-      password: '12341234',
-    })
     event.preventDefault();
+    console.log(event)
+    signIn({
+      email: email,
+      password: password,
+    })
+
+  }
+
+  const myChangeHandler = (event) => {
+    setEmail(event.target.value)
+  }
+  const myChangeHandlerPass = (event) => {
+    setPassword(event.target.value)
   }
 
   return (
@@ -29,8 +39,8 @@ function Login() {
         <SubTitle>Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</SubTitle>
       </Content>
       <FormContact onSubmit={handleSubmit} method="post" tabindex="1">
-        <InputForm type="text" name="nome" placeholder="Nome" required />
-        <InputForm type="email" name="email" placeholder="Email" required />
+        <InputForm type="text" name="nome" placeholder="Nome" required onChange={myChangeHandler} />
+        <InputForm type="password" name="email" placeholder="Email" value={password} required onChange={myChangeHandlerPass} />
         <ButtonForm type="submit">Enviar</ButtonForm>
       </FormContact>
     </ContainerForm>

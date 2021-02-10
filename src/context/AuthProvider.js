@@ -5,7 +5,7 @@ import api from '../services/api';
 const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
 
   useEffect(() => {
     const token = localStorage.getItem('@IOASYS:token');
@@ -14,9 +14,9 @@ export default function AuthProvider({ children }) {
 
     console.log()
     if (token && uid && client) {
-      console.log('logado!')
+      setData({ token, uid, client })
     }
-  }, [])
+  }, [setData])
 
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('users/auth/sign_in', {
@@ -29,8 +29,8 @@ export default function AuthProvider({ children }) {
     localStorage.setItem('@IOASYS:token', token)
     localStorage.setItem('@IOASYS:uid', uid)
     localStorage.setItem('@IOASYS:client', client)
-
-  }, [])
+    setData({ token, uid, client })
+  }, [setData])
 
   // const signIn = useCallback(async ({ email, password }) => {
 
@@ -58,8 +58,10 @@ export default function AuthProvider({ children }) {
   // }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@Provi:logged');
-    setData();
+    localStorage.setItem('@IOASYS:token')
+    localStorage.setItem('@IOASYS:uid')
+    localStorage.setItem('@IOASYS:client')
+    setData({});
   }, []);
 
   return (
