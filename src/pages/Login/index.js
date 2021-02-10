@@ -1,40 +1,39 @@
 import React, { useCallback } from 'react';
-import { Form } from '@unform/web';
+import { useAuth } from '../../context/AuthProvider';
 
-import Input from '../../components/Input';
-import { Container, ContainerImage, Title, SubTitle } from './styles';
+import { ContainerForm, Title, SubTitle, Content, FormContact, InputForm, ButtonForm } from './styles';
 
-import logo from '../../assets/images/logo.png'
-import Button from '../../components/Button';
+import logo from '../../assets/images/logo-home.png'
+import icon from '../../assets/icons/ic-email.svg'
+import { useHistory } from 'react-router-dom';
 
 function Login() {
-  const title = "Bem vindo ao empresas";
+  const { signIn } = useAuth();
 
-  const handleSubmit = useCallback(ev => {
-    ev.preventDefault();
-    console.log('hellow')
-  }, [])
+  const history = useHistory();
+
+  const handleSubmit = (event) => {
+
+    signIn({
+      email: 'testeapple@ioasys.com.br',
+      password: '12341234',
+    })
+    event.preventDefault();
+  }
 
   return (
-    <Container>
-      <ContainerImage>
+    <ContainerForm >
+      <Content>
         <img src={logo} alt="Ioasys" />
-      </ContainerImage>
-      <Title>
-        {title.toUpperCase()}
-      </Title>
-      <SubTitle>
-        Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.
-      </SubTitle>
-      <Form onSubmit={handleSubmit}>
-        <div>
-          <Input name="email" placeholder="E-mail" />
-          <Input name="password" placeholder="Senha" />
-          <Button type="submit">{`Login`.toUpperCase()}</Button>
-        </div>
-      </Form>
-
-    </Container>
+        <Title >{`Bem-vindo ao Empresas`.toUpperCase()}</Title>
+        <SubTitle>Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</SubTitle>
+      </Content>
+      <FormContact onSubmit={handleSubmit} method="post" tabindex="1">
+        <InputForm type="text" name="nome" placeholder="Nome" required />
+        <InputForm type="email" name="email" placeholder="Email" required />
+        <ButtonForm type="submit">Enviar</ButtonForm>
+      </FormContact>
+    </ContainerForm>
   )
 }
 

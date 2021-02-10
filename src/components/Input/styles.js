@@ -33,7 +33,8 @@ export const Container = styled.div`
     flex: 1;
     background: transparent;
     border: 0;
-    color: #f4ede8;
+    color: #403e4d;
+    width: 350px;
     &::placeholder {
       color: #666360;
     }
