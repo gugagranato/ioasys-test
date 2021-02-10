@@ -30,7 +30,7 @@ export default function AuthProvider({ children }) {
     localStorage.setItem('@IOASYS:uid', uid)
     localStorage.setItem('@IOASYS:client', client)
     setData({ token, uid, client })
-  }, [setData])
+  }, [])
 
   // const signIn = useCallback(async ({ email, password }) => {
 

@@ -4,7 +4,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-// import { useAuth } from '../context/AuthProvider';
+import { useAuth } from '../context/AuthProvider';
 
 
 const Route = ({
@@ -12,24 +12,22 @@ const Route = ({
   component: Component,
   ...rest
 }) => {
-  // const { data } = useAuth();
-  const [isLogado, setIsLogado] = useState(false)
+  const { data } = useAuth();
+  const [isLogged, setIsLogged] = useState(false)
 
   useEffect(() => {
-    const token = localStorage.getItem('@IOASYS:token');
-    const uid = localStorage.getItem('@IOASYS:uid');
-    const client = localStorage.getItem('@IOASYS:client');
+    const { token, uid, client } = data
 
     if (token && uid && client) {
-      setIsLogado(true)
-    } else setIsLogado(false)
-  }, [setIsLogado])
+      setIsLogged(true)
+    } else setIsLogged(false)
+  }, [setIsLogged, data])
 
   return (
     <ReactDOMRoute
       {...rest}
       render={({ location }) => {
-        return isPrivate === isLogado ? (
+        return isPrivate === isLogged ? (
           <Component />
         ) : (
             <Redirect
