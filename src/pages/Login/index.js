@@ -4,8 +4,11 @@ import { useAuth } from '../../context/AuthProvider';
 import { ContainerForm, Title, SubTitle, Content, FormContact, InputForm, ButtonForm } from './styles';
 
 import logo from '../../assets/images/logo-home.png'
-import icon from '../../assets/icons/ic-email.svg'
+import emailIcon from '../../assets/icons/ic-email.svg'
+import passwordIcon from '../../assets/icons/ic-cadeado.svg'
 import { useHistory } from 'react-router-dom';
+import Input from '../../components/Input';
+
 
 function Login() {
   const { signIn } = useAuth();
@@ -39,8 +42,9 @@ function Login() {
         <SubTitle>Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</SubTitle>
       </Content>
       <FormContact onSubmit={handleSubmit} method="post" tabindex="1">
-        <InputForm type="text" name="nome" placeholder="Nome" required onChange={myChangeHandler} />
-        <InputForm type="password" name="email" placeholder="Email" value={password} required onChange={myChangeHandlerPass} />
+
+        <Input type="text" name="nome" placeholder="Nome" required onChange={myChangeHandler} icon={emailIcon} />
+        <Input type="password" name="email" placeholder="Email" required onChange={myChangeHandlerPass} icon={passwordIcon} />
         <ButtonForm type="submit">Enviar</ButtonForm>
       </FormContact>
     </ContainerForm>

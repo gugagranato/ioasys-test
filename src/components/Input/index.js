@@ -4,16 +4,11 @@ import React, {
   useState,
   useCallback,
 } from 'react';
-import { useField } from '@unform/core';
 
 import { Container } from './styles';
 
-
-
 const Input = ({
-  name,
-  containerStyle = {},
-  // icon: Icon,
+  icon,
   ...rest
 }) => {
   const inputRef = useRef(null);
@@ -21,7 +16,6 @@ const Input = ({
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
-  const { fieldName, defaultValue, error, registerField } = useField(name);
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -33,27 +27,25 @@ const Input = ({
     setIsFilled(!!inputRef.current?.value);
   }, []);
 
-  useEffect(() => {
-    registerField({
-      name: fieldName,
-      ref: inputRef.current,
-      path: 'value',
-    });
-  }, [fieldName, registerField]);
+  // useEffect(() => {
+  //   registerField({
+  //     name: fieldName,
+  //     ref: inputRef.current,
+  //     path: 'value',
+  //   });
+  // }, [fieldName, registerField]);
 
   return (
     <Container
-      style={containerStyle}
-      isErrored={!!error}
+      // isErrored={!!error}
       isFilled={isFilled}
       isFocused={isFocused}
       data-testid="input-container"
     >
-      {/* {Icon && <Icon size={20} />} */}
+      {icon && <img src={icon} alt='icon' />}
       <input
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        defaultValue={defaultValue}
         ref={inputRef}
         {...rest}
       />

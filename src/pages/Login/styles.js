@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export const ContainerForm = styled.div`
-   min-height: 100vh;
+  min-height: 100vh;
   display: flex;
   max-width: 800px;
   flex: 1;
@@ -12,7 +12,6 @@ export const ContainerForm = styled.div`
   justify-content: center;
   flex-direction: column;
   max-width: 550px;
-  
 `
 export const Content = styled.div`
   display: flex;
@@ -32,29 +31,19 @@ export const SubTitle = styled.h3`
   max-width: 450px;
 `
 export const FormContact = styled.form`
-   width: 100%;
+  width: 100%;
   font-family: "Arial", Times, serif;
 `
-export const InputForm = styled.input`
-  width: 100%;
-  color: #292929;
-  font-size: 18px;
-  background: transparent;
-  height: 40px;
-  margin-bottom: 20px;
-  border: 0;
-  border-bottom: 1px solid #383743;
-  color: #494758;
-  text-indent: 20px;
-`
+
 export const ButtonForm = styled.button`
-   width: 100%;
+  width: 100%;
   font-size: 18px;
   border-radius: 4px;
   color: #fff;
   height: 40px;
   opacity: .8;
   margin-bottom: 20px;
+  /* margin-top: 40px; */
   cursor: pointer;
   background: #57bbbc;
   display: block;

@@ -1,13 +1,12 @@
 import styled, { css } from 'styled-components';
 
-
-
 export const Container = styled.div`
-  background: rgba(255,255,255,255, 0.0);
-  padding: 16px;
+  background: transparent;
+  margin-bottom: 40px;
+  padding: 4px;
   width: 100%;
-  border-bottom: 1px solid #999794;
-  color: #403e4d;
+  border-bottom: 1px solid #383743;
+  color: #666360;
   display: flex;
   align-items: center;
   & + div {
@@ -21,40 +20,39 @@ export const Container = styled.div`
   ${(props) =>
     props.isFocused &&
     css`
-      color: #ff9000;
-      border-color: #ff9000;
+      color: #57bbbc;
+      border-color: #57bbbc;
     `}
   ${(props) =>
     props.isFilled &&
     css`
-      color: #ff9000;
+      color: #57bbbc;
     `}
   input {
+    font-size: 18px;
+    height: 40px;
     flex: 1;
     background: transparent;
     border: 0;
-    color: #403e4d;
-    width: 350px;
+    color: #292929;
     &::placeholder {
       color: #666360;
     }
   }
-  svg {
-    margin-right: 16px;
+  img {
+    margin-right: 10px;
   }
 `;
 
-// export const Error = styled(Tooltip)`
-//   height: 20px;
-//   margin-left: 16px;
-//   svg {
-//     margin: 0;
-//   }
-//   span {
-//     background: #c53030;
-//     color: #fff;
-//     &::before {
-//       border-color: #c53030 transparent;
-//     }
-//   }
-// `;
+// export const InputForm = styled.input`
+//   width: 100%;
+//   color: #292929;
+//   font-size: 18px;
+//   background: transparent;
+//   height: 40px;
+//   margin-bottom: 20px;
+//   border: 0;
+//   border-bottom: 1px solid #383743;
+//   color: #494758;
+//   text-indent: 20px;
+// `

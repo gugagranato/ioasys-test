@@ -1,31 +1,21 @@
 import React, { useEffect } from 'react';
-import { useAuth } from '../../context/AuthProvider';
 // import { Container } from './styles';
+import { useSearchStarwarsHero } from '../../hooks/genericDebounce';
+
 
 function Home() {
-  const { data } = useAuth();
 
-  const { token, uid, client } = data;
+
+  const { inputText, setInputText, search } = useSearchStarwarsHero();
+
   useEffect(() => {
-    fetch('https://empresas.ioasys.com.br/api/v1/enterprises/1', {
-      method: 'GET',
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        'access-token': token,
-        'uid': uid,
-        'client': client
-      }
-    }).then(e => e.json()
-      .then(ev => console.log(ev))
-    )
+    console.log(search.result)
   })
-
 
   return (
     <div>
-      <h1 style={{
-        fontFamily: "Roboto-Bold"
-      }}>Home</h1>
+      <input value={inputText} onChange={e => setInputText(e.target.value)} />
+
     </div>
   )
 }
