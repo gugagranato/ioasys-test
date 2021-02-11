@@ -1,12 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthProvider';
 
-import { ContainerForm, Title, SubTitle, Content, FormContact, InputForm, ButtonForm } from './styles';
+import { ContainerForm, Title, SubTitle, Content, FormContact, ButtonForm } from './styles';
 
 import logo from '../../assets/images/logo-home.png'
 import emailIcon from '../../assets/icons/ic-email.svg'
 import passwordIcon from '../../assets/icons/ic-cadeado.svg'
-import { useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 
 
@@ -14,8 +13,6 @@ function Login() {
   const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();

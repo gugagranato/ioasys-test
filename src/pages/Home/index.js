@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 // import { Container } from './styles';
-import { useSearchStarwarsHero } from '../../hooks/genericDebounce';
+import { useSearchCompany } from '../../hooks/genericDebounce';
 
 
 function Home() {
 
 
-  const { inputText, setInputText, search } = useSearchStarwarsHero();
+  const { inputText, setInputText, search } = useSearchCompany();
 
   useEffect(() => {
     console.log(search.result)

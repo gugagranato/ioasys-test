@@ -29,12 +29,12 @@ export const searchCompany = async (text) => {
   return result.data;
 };
 
-export const useSearchStarwarsHero = () => {
+export const useSearchCompany = () => {
   // Handle the input text state
   const [inputText, setInputText] = useState('');
 
   // Debounce the original search async function
-  const debouncedSearchStarwarsHero = useConstant(() =>
+  const debouncedSearchCompany = useConstant(() =>
     AwesomeDebouncePromise(searchCompany, 300)
   );
 
@@ -46,7 +46,7 @@ export const useSearchStarwarsHero = () => {
       }
       // Else we use the debounced api
       else {
-        return debouncedSearchStarwarsHero(text, abortSignal);
+        return debouncedSearchCompany(text, abortSignal);
       }
     },
     // Ensure a new request is made everytime the text changes (even if it's debounced)
