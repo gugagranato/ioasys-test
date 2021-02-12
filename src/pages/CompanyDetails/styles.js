@@ -11,12 +11,19 @@ export const SearchContainer = styled.div`
   background: #ee4c77;
   padding: 60px 30px 30px ;
   display: flex;
+  align-items: center;
   &.logo{
       @media (max-width: 350px) {
       width: 100px
     }
   }
 `
+export const TitleCompany = styled.h1`
+  font-size: 28px;
+  color: white;
+  margin-left: 14px;
+`
+
 export const InputSearch = styled.input`
 border: solid 0;
 border-bottom: 1px solid white;
@@ -29,12 +36,17 @@ padding: 2px;
 `
 export const ContainerCard = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin: 40px;
   background: #FFF;
   padding: 1.7rem 1.9rem;
   display: flex;
+  min-height: 100vh;
   cursor: pointer;
+  > img {
+    width: 85%;
+  }
   @media (max-width: 810px) {
     flex-direction: column;
     margin: 10px;
@@ -99,10 +111,12 @@ height: 100vh;
 font-size: 2rem;
 text-align: center;
 `
-export const CompanyName = styled.h1`
+export const CompanyDescription = styled.h1`
+margin-top: 30px;
 font-size: 1.9rem;
-font-weight: bold;
-color: #1a0e49;
+font-weight: 400;
+text-align: center;
+color: #8d8c8c;
 margin-bottom: 10px;
   @media (max-width: 580px) {
       font-size: 24px;
