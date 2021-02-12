@@ -4,17 +4,20 @@ import React, {
   useCallback,
 } from 'react';
 
-import { Container } from './styles';
+import { IoAlertCircle } from 'react-icons/io5';
+
+
+import { Container, Error } from './styles';
 
 const Input = ({
   icon,
+  error,
   ...rest
 }) => {
   const inputRef = useRef(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -36,7 +39,7 @@ const Input = ({
 
   return (
     <Container
-      // isErrored={!!error}
+      isErrored={error}
       isFilled={isFilled}
       isFocused={isFocused}
       data-testid="input-container"
@@ -49,11 +52,11 @@ const Input = ({
         {...rest}
       />
 
-      {/* {error && (
+      {error && (
         <Error title={error}>
-          <FiAlertCircle color="#c53030" size={20} />
+          <IoAlertCircle color="#ff0f44" size={24} />
         </Error>
-      )} */}
+      )}
     </Container>
   );
 };

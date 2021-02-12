@@ -12,11 +12,10 @@ export default function AuthProvider({ children }) {
     const uid = localStorage.getItem('@IOASYS:uid');
     const client = localStorage.getItem('@IOASYS:client');
 
-    console.log()
     if (token && uid && client) {
       setData({ token, uid, client })
     }
-  }, [setData])
+  }, [])
 
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('users/auth/sign_in', {
@@ -31,31 +30,6 @@ export default function AuthProvider({ children }) {
     localStorage.setItem('@IOASYS:client', client)
     setData({ token, uid, client })
   }, [])
-
-  // const signIn = useCallback(async ({ email, password }) => {
-
-  //   fetch("https://reqres.in/api/login", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: email,
-  //       password: password,
-  //     }),
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8"
-  //     }
-  //   })
-  //     .then(response => {
-  //       console.log(response)
-  //       console.log(response.headers)
-  //       console.log(response.body)
-  //       // const logged = response.ok
-  //       // localStorage.setItem('@Provi:logged', logged);
-  //       // setData(response)
-  //     })
-
-
-
-  // }, []);
 
   const signOut = useCallback(() => {
     localStorage.setItem('@IOASYS:token')

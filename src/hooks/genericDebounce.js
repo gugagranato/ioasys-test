@@ -30,30 +30,24 @@ export const searchCompany = async (text) => {
 };
 
 export const useSearchCompany = () => {
-  // Handle the input text state
   const [inputText, setInputText] = useState('');
 
-  // Debounce the original search async function
   const debouncedSearchCompany = useConstant(() =>
     AwesomeDebouncePromise(searchCompany, 300)
   );
 
   const search = useAsyncAbortable(
     async (abortSignal, text) => {
-      // If the input is empty, return nothing immediately (without the debouncing delay!)
       if (text.length === 0) {
         return [];
       }
-      // Else we use the debounced api
       else {
         return debouncedSearchCompany(text, abortSignal);
       }
     },
-    // Ensure a new request is made everytime the text changes (even if it's debounced)
     [inputText]
   );
 
-  // Return everything needed for the hook consumer
   return {
     inputText,
     setInputText,

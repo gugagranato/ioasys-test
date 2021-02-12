@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
+import Tooltip from '../Tooltip';
 
 export const Container = styled.div`
   background: transparent;
+  margin: 0 auto;
   margin-bottom: 40px;
   padding: 4px;
-  width: 100%;
+  width: 90%;
   border-bottom: 1px solid #383743;
   color: #666360;
   display: flex;
@@ -44,15 +46,17 @@ export const Container = styled.div`
   }
 `;
 
-// export const InputForm = styled.input`
-//   width: 100%;
-//   color: #292929;
-//   font-size: 18px;
-//   background: transparent;
-//   height: 40px;
-//   margin-bottom: 20px;
-//   border: 0;
-//   border-bottom: 1px solid #383743;
-//   color: #494758;
-//   text-indent: 20px;
-// `
+export const Error = styled(Tooltip)`
+  height: 20px;
+  margin-left: 16px;
+  svg {
+    margin: 0;
+  }
+  span {
+    background: #c53030;
+    color: #fff;
+    &::before {
+      border-color: #c53030 transparent;
+    }
+  }
+`;
