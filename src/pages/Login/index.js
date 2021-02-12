@@ -46,7 +46,6 @@ function Login() {
         if (err instanceof Yup.ValidationError) {
 
           setError(true)
-          console.log(err)
           return;
         }
         setLoading(false)

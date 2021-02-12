@@ -84,7 +84,6 @@ export const ContainerCard = styled.div`
   }
 
 `
-
 export const ResumeCardContainer = styled.div`
 margin-left: 2.5rem;
   @media (max-width: 810px) {
@@ -135,47 +134,3 @@ margin-bottom: 10px;
       }
 
 `
-export const CompanyTypeName = styled.h2`
-  color: #8d8c8c;
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 5px;
-
-    @media (max-width: 580px) {
-    font-size: 20px;
-      text-align: center;
-    }
-      @media (max-width: 450px) {
-    font-size: 18px;
-      width: 250px;
-      text-align: center;
-
-    }
-    @media (max-width: 290px) {
-      font-size: 16px;
-      text-align: center;
-      width: 200px;
-  }
-`
-export const CompanyPlace = styled.h2`
-  color: #8d8c8c;
-  font-size: 1.125rem;
-  font-weight: 300;
-  margin-bottom: 5px;
-    @media (max-width: 580px) {
-      font-size: 18px;
-      text-align: center;
-      }
-        @media (max-width: 450px) {
-      font-size: 16px;
-        width: 250px;
-      text-align: center;
-      }
-      @media (max-width: 290px) {
-        font-size: 14px;
-      text-align: center;
-        width: 200px;
-    }
-`
-
-

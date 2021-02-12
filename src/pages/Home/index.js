@@ -28,10 +28,6 @@ function Home() {
     setInitialState(false)
   }
 
-  const handleDetails = e => {
-    console.log(e)
-  }
-
   const headerSearchInitial = (
     <SearchContainer>
       <img src={searchIcon} alt="search icon" />
